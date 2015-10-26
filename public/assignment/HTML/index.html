@@ -14,8 +14,8 @@
 
 <script src="app.js"></script>
 <script src="config.js"></script>
-<script src="header.controller.js"></script>
-<script src="sidebar.controller.js"></script>
+<script src="header/header.controller.js"></script>
+<script src="sedebar/sidebar.controller.js"></script>
 <script src="FormService.js"></script>
 <script src="form.controller.js"></script>
 <script src="FormUpdateController.js"></script>
@@ -33,10 +33,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <div ng-include src="'header.view.html'"></div>
+        <div ng-include src="'header/header.view.html'"></div>
     </div>
     <div class="col-md-1">
-        <div ng-include src="'sidebar.view.html'"></div>
+        <div ng-include src="'sidebar/sidebar.view.html'"></div>
     </div>
     <div class="col-md-11" ng-view>     
     </div>
