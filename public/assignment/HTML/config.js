@@ -10,24 +10,24 @@
    			templateUrl: "home/home.view.html"
    		})
    		.when("/login",{
-   			templateUrl: "login.view.html",
-            controller: "login.controller"
+   			templateUrl: "login/login.view.html",
+            controller: "login/login.controller"
    		})
          .when("/register",{
-            templateUrl: "register.view.html",
-            controller: "RegisterController"
+            templateUrl: "register/register.view.html",
+            controller: "register/register.controller"
          })
    		.when("/profile",{
-   			templateUrl: "profile.view.html",
-            controller: "ProfileController"
+   			templateUrl: "profile/profile.view.html",
+            controller: "profile/profile.controller"
    		})
    		.when("/forms",{
-   			templateUrl: "form.view.html",
-            controller: "form.controller"
+   			templateUrl: "form/form.view.html",
+            controller: "form/form.controller"
    		})
          .when("/formUpdate/:count", {
-            templateUrl: "formUpdate.html",
-            controller: "FormUpdateController"
+            templateUrl: "form/formUpdate.html",
+            controller: "form/FormUpdateController"
          })
          
          
