@@ -23,9 +23,9 @@
 		};
 
 		function findUserByUsernameAndPassword(findUserName, findPassword, callback) {
-			for (var i in users) {
-				if ((users[i].userName == findUserName) && (users[i].password == findPassword)) {
-					callback(users[i]);
+			for (var user in users) {
+				if ((users[user].userName == findUserName) && (users[user].password == findPassword)) {
+					callback(users[user]);
 					return;
 				}
 			}
