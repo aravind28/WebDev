@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AdminApp" ng-controller="FindAllContainer">
+
+<title>Admin Page</title>
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!--AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!--Angular-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+  <!--Angular app and controller-->
+  <script src="admin.js"></script>
+</head>
+
+<style>
+  tr {
+    text-align: center;
+  }
+  
+  th {
+    text-align: center;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">TechAllTrendAll</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="../mainpage.html">Go to Main Page</a></li>
+          <li><a href="../index.html">Logout</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      </br>
+      </br>
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+        <h1 class="page-header">Admin</h1>
+
+        <h3>Web Page Users</h3>
+
+        <table class="table table-striped" border="2px">
+
+          <thead>
+            <tr>
+              <th><span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Password</th>
+              <th>Email</th>
+              <th>Admin Action</th>
+            </tr>
+          </thead>
+
+          <tbody ng-repeat="user in AllUsers">
+            <tr>
+              <td>{{user.username}}</td>
+              <td>{{user.firstname}}</td>
+              <td>{{user.lastname}}</td>
+              <td>{{user.password}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <input type="submit"  class="btn btn-danger" id="deleteUser" ng-click="submitFunc()" value="Delete User"/>
+                <input type="submit"  class="btn btn-primary" id="viewProfile" ng-click="submitFunc()" value="View Profile"/>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

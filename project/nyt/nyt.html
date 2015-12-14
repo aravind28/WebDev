@@ -1,0 +1,40 @@
+<html ng-app="NytApp">
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!--AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!--Angular-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+  <!--Angular app and controller-->
+  <script src="nyt.js"></script>
+</head>
+
+<body>
+  <div ng-controller="NYTContainer">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Headline</th>
+          <th>Go to</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="news in nyt">
+          <td>{{news.snippet}}</td>
+          <td><a href="{{news.web_url}}" target="_blank">{{news.web_url}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
