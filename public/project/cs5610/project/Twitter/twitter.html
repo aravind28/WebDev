@@ -1,0 +1,35 @@
+<html lang="en", ng-app="TwitterApp">
+	
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-sanitize.js"></script>
+		<script src="twitter.js"></script>
+	</head>
+	<title> Twitter Feeds </title>
+	<body ng-controller="TweetController">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Tweet</th>
+					<th>Go to</th>
+					<th>Who's tweeting?</th>
+					<th>Location</th>
+					<th>Action</th>
+					<th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="tweet in tweets">
+					<td>{{tweet.text}}</td>
+					<td ng-bind-html="tweet.source"></td>
+					<td>{{tweet.user.name}}</td>
+					<td>{{tweet.user.location}}</td>
+					<td><button class="btn btn-success">Save</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

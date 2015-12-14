@@ -7,9 +7,9 @@
 
 		var user1 = {
 			id: 10,
-			userName: "nirav",
-			password: "123",
-			email: "e@mail.com"
+			userName: "aravindh",
+			password: "28",
+			email: "e@gmail.com"
 		};
 
 		var users = [user1];
