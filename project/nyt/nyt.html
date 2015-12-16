@@ -20,21 +20,25 @@
 
 <body>
   <div ng-controller="NYTContainer">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Headline</th>
-          <th>Go to</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="news in nyt">
-          <td>{{news.snippet}}</td>
-          <td><a href="{{news.web_url}}" target="_blank">{{news.web_url}}</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="form-group">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Headline</th>
+            <th>Go to</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="news in nyt">
+            <td>{{news.snippet}}</td>
+            <td><a href="{{news.web_url}}" target="_blank">{{news.web_url}}</a></td>
+            <td>
+              <input type="submit" id="submit" ng-click="nytSubmitFunc()" value="Save"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
-
 </html>

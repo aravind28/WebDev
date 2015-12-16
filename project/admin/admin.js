@@ -9,4 +9,14 @@ angular.module("AdminApp").controller("FindAllContainer", findAllContainer);
 			{
 				$scope.AllUsers = response;
 			});	
+			
+	$scope.deleteUser = function(username)
+	{
+		$http
+			.delete("/removeUser/" + username)
+			.success(function(response)
+			{
+				$scope.AllUsers = response;
+			});
+	}
 	}

@@ -18,9 +18,18 @@ function registerController($scope, $http)
 			.post("/RegisterUser", userObj)
 			.success(function (response)
 			{
+				$scope.reset();
 				console.log(JSON.stringify(response));
 			});
 	}
-	
+	$scope.reset = function()
+	{
+		$scope.username = ''
+		$scope.firstname =''
+		$scope.lastname = ''
+		$scope.password = ''
+		$scope.verifyPassword = ''
+		$scope.email = ''
+	};
 	
 }

@@ -9,14 +9,11 @@ var twit = new TwitterApp
   });
 
 var count = 0;
-
 var tweetList = [];
 
 twit.stream('statuses/filter', { track: 'nodejs' }, function (stream) {
   stream.on('data', function (tweet) {
-    console.log("hit");
     tweetList.push(tweet);
-    console.log(tweetList);
   });
 
   stream.on('error', function (error) {

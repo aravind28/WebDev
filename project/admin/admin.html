@@ -86,8 +86,7 @@
               <td>{{user.password}}</td>
               <td>{{user.email}}</td>
               <td>
-                <input type="submit"  class="btn btn-danger" id="deleteUser" ng-click="submitFunc()" value="Delete User"/>
-                <input type="submit"  class="btn btn-primary" id="viewProfile" ng-click="submitFunc()" value="View Profile"/>
+                <input type="submit" class="btn btn-danger" id="deleteUser" ng-click="deleteUser(user.username)" value="Delete User" />
               </td>
             </tr>
           </tbody>

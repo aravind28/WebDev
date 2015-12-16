@@ -39,7 +39,6 @@ app.get('/', function (req, res) {
 });
 
 // New York Times 
-
 var keys =
   {
     'popular': '3d6d31dffa01de4676bc42b8b48ca0cc:4:73752253',
@@ -54,25 +53,11 @@ app.get("/nytime", function (req, res) {
 
 // Youtube API //
 youTube.setKey('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU');
-
-// app.get('/youtube', function (req, res) {
-//    youTube.search('BMW', 2, function (error, res) {
-//     // if (error) {
-//     //   console.log(error);
-//     // }
-//     // else {
-//     //   console.log(JSON.stringify(result, null, 2));
-//     // }
-//     res.json(res);
-//   });
-// });
 // Youtube API //
 
 // Twitter API //
 app.get('/twitter', function(req, res)
 {
-  console.log("entering tweet get func");
-  console.log(twitterList);
   res.send(twitterList);
 });
 
@@ -88,18 +73,24 @@ app.get("/findAll", function (req, res) {
 });
 
 app.post("/RegisterUser", function (req, res) {
-  console.log("Entering Node");
   var createUser = req.body;
 
-  console.log("abcd" + JSON.stringify(createUser));
   User.create(createUser, function (err, response) {
-    console.log("Entering register funciton");
-    console.log(JSON.stringify(response));
     res.send(response);
   });
 
 });
 
+app.delete("/removeUser/:username", function(req, res)
+{
+  User.remove({username : req.params.username}, function(err, response)
+  {
+    User.find(function(err, data)
+    {
+      res.json(data);  
+    });
+  });
+});
 // New York Times API //
 app.get("/nyt", function (req, res) {
   var url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=sample-key";
@@ -111,7 +102,6 @@ app.get("/nyt", function (req, res) {
 
     if (!error && response.statusCode === 200) {
       res.json(body);
-        console.log(body); // Print the json response
     }
 })
   });
