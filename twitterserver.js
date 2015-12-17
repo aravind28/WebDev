@@ -13,12 +13,12 @@ var tweetList = [];
 
 twit.stream('statuses/filter', { track: 'technology' }, function (stream) {
   stream.on('data', function (tweet) {
-    tweetList.push(tweet);
     
     if(tweetList.length >= 20)
     {
       tweetList=[];
-    };
+    }
+    tweetList.push(tweet);
   });
 
   stream.on('error', function (error) {
