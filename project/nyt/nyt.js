@@ -8,4 +8,4 @@ function nytController($scope, $http) {
 			.then(function (res) {
 				$scope.nyt = res.data.response.docs;
 			});
-			
+}
