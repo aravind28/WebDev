@@ -11,9 +11,14 @@ var twit = new TwitterApp
 var count = 0;
 var tweetList = [];
 
-twit.stream('statuses/filter', { track: 'nodejs' }, function (stream) {
+twit.stream('statuses/filter', { track: 'technology' }, function (stream) {
   stream.on('data', function (tweet) {
     tweetList.push(tweet);
+    
+    if(tweetList.length >= 20)
+    {
+      tweetList=[];
+    };
   });
 
   stream.on('error', function (error) {
