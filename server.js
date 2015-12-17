@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 
 // Command to Host Directory
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/project'));
 
 
@@ -56,8 +56,7 @@ youTube.setKey('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU');
 // Youtube API //
 
 // Twitter API //
-app.get('/twitter', function(req, res)
-{
+app.get('/twitter', function (req, res) {
   res.send(twitterList);
 });
 
@@ -65,7 +64,7 @@ app.get('/twitter', function(req, res)
 
 // Mongoose API //
 app.get("/findAll", function (req, res) {
-   
+
   User.find(function (err, result) {
     res.json(result);
   });
@@ -81,37 +80,34 @@ app.post("/RegisterUser", function (req, res) {
 
 });
 
-app.delete("/removeUser/:username", function(req, res)
-{
-  User.remove({username : req.params.username}, function(err, response)
-  {
-    User.find(function(err, data)
-    {
-      res.json(data);  
+app.delete("/removeUser/:username", function (req, res) {
+  User.remove({ username: req.params.username }, function (err, response) {
+    User.find(function (err, data) {
+      res.json(data);
     });
   });
 });
 // New York Times API //
 app.get("/nyt", function (req, res) {
   var url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=sample-key";
-  
+
   request({
     url: url,
     json: true
-}, function (error, response, body) {
+  }, function (error, response, body) {
 
     if (!error && response.statusCode === 200) {
       res.json(body);
     }
-})
-  });
+  })
+});
 
-  console.log("HelloWorld!!");
+console.log("HelloWorld!!");
 
-  // app.listen(3000);
+// app.listen(3000);
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var db = mongoose.connection;
 
 require("./public/assignment/server/app.js")(app, mongoose, db);
